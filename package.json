@@ -1,24 +1,14 @@
 {
-  "name": "take-out-food",
+  "name": "js-workspace",
   "version": "1.0.0",
-  "description": "## 考试目标",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node run-test.js && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/freewind/take-out-food.git"
-  },
-  "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/freewind/take-out-food/issues"
-  },
-  "homepage": "https://github.com/freewind/take-out-food#readme",
   "devDependencies": {
-    "jasmine": "^2.4.1",
-    "jasmine-console-reporter": "^1.2.6"
+    "jest": "^24.9.0"
   }
 }

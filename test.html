@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>菜鸟教程(runoob.com)</title>
+<script>
+
+function displayDate(){
+    const database = [
+    {"id": "0001", "name" : "Coca Cola", "price": 3},
+    {"id": "0002", "name" : "Diet Coke", "price": 4},
+    {"id": "0003", "name" : "Pepsi-Cola", "price": 5},
+    {"id": "0004", "name" : "Mountain Dew", "price": 6},
+    {"id": "0005", "name" : "Dr Pepper", "price": 7},
+    {"id": "0006", "name" : "Sprite", "price": 8},
+    {"id": "0007", "name" : "Diet Pepsi", "price": 9},
+    {"id": "0008", "name" : "Diet Mountain Dew", "price": 10},
+    {"id": "0009", "name" : "Diet Dr Pepper", "price": 11},
+    {"id": "0010", "name" : "Fanta", "price": 12}
+];
+
+
+function countItems(barcodes){
+
+let result = [];
+for(let i = 0;i<barcodes.length;i++){
+    let index = result.findIndex((item)=>item.id ===barcodes[i]);
+    if(index>-1){
+        result[index] = {
+            id:barcodes[i],
+            count: result[index].count + 1
+        };
+        }else{
+            result.push({id:barcodes[i],count:1});
+        }
+    }
+    console.log("zhangjing");
+    return result;
+
+// let resultCountArr = new Array();
+// let idArr = new Array();
+// let splitInput = barcodes.split(",");
+// for(let i =0 ;i<splitInput.length;i++){
+//     idArr.push(splitInput.replace(/[^0-9]/ig,""));
+// }
+// const map = new Map();
+// for(let i = 0;i<idArr.length;i++){
+//     if (map.get(idArr[i])==null){
+//         map.set(idArr[i],1);
+
+//     }else{
+//         map.set(idArr[i],map.get(idArr[i])+1);
+//     }
+// }
+
+// return resultCountArr;
+
+}
+
+function getItems(countArr){
+let result = [];
+let queryInf = {};
+for(let i= 0;i<countArr.length;i++){
+    queryInf = queryItems(countArr[i].id);
+    queryInf.count = countArr[i].count;
+    result.push(queryInf);
+}
+console.log("test"+result);
+return result;
+
+}
+
+
+function queryItems(itemId){
+let result={};
+for(let i = 0; i < database.length;i++){
+    if(itemId == database[i].id){
+        return database[i];
+    }
+}
+}
+
+
+function calculateNum(queryItem){
+let result = "";
+
+for(let i = 0;i<queryItem.length;i++){
+   result = result + calculateSumPrice(queryItem[i]);
+}
+return result; 
+}
+
+
+function calculateSumPrice(queryItem){
+let inf = queryItem.name+ "    "+ queryItem.price+"    "+  queryItem.price*queryItem.count;
+return inf;
+}
+
+barcodes = ['0001', '0003', '0005', '0003'];
+let countArr = countItems(barcodes);
+let items = getItems(countArr);
+let result = calculateNum(items);
+alert("zhangjing"+result);
+
+//     let barcodes = ['0001', '0003', '0005', '0003'];
+//     result = [];
+//     for(let i = 0;i<barcodes.length;i++){
+//         let index = result.findIndex((item) => item.id === barcodes[i]);
+//         if(index>-1){
+//             result[index] ={
+//                 id:barcodes[i],
+//                 count:result[index].count + 1
+//             }
+//         }else{
+//             result.push({
+//                 id:barcodes[i],
+//                 count:1
+//             })
+//         }
+//     }
+//     function queryItems(itemId){
+//     let result;
+//     for(let i = 0; i < database.length;i++){
+//         if(itemId == database[i].id){
+//             return database[i];
+//         }
+//     }
+// }
+
+//     let result1 = [];
+//     let queryInf = {};
+//     for(let i= 0;i<result.length;i++){
+//         queryInf = queryItems(result[i].id);
+//         queryInf.count = result[i].count;
+//         result1.push(queryInf);
+//     }
+    
+  
+	document.getElementById("demo").innerHTML="result1[0]";
+}
+</script>
+</head>
+<body>
+
+<h1>我的第一个 JavaScript 程序</h1>
+<p id="demo">这是一个段落</p>
+
+<button type="button" onclick="displayDate()">显示日期</button>
+
+</body>
+</html>

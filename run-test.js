@@ -23,3 +23,5 @@ var reporter = new JasmineConsoleReporter({
 jasmine.addReporter(reporter);
 
 jasmine.execute();
+
+
